@@ -34,7 +34,6 @@ const server = http.createServer(function(req,res){
                 }
 
                 res.statusCode = 200;
-                res.statusCode = 200;
                 res.setHeader('Content-Type', 'text/html');
                 fs.createReadStream(filePath).pipe(res);
 
