@@ -11,15 +11,20 @@ const port = 3000;
 const server = http.createServer(function(req,res){
 
     console.log('Request for ' + req.url + ' by method ' + req.method);
-
+    var fileURL;
     if(req.method == 'GET'){
-        var fileURL;
+        
+       
 
         if(req.url == '/') fileURL = '/index.html';
-        else fileURL = req.url;
+        else {
+            fileURL = req.url;
+        }
 
         var filePath = path.resolve('./public'+fileURL);
         const fileExt = path.extname(filePath);
+
+        console.log('fileURL is : '+fileURL);
 
         if(fileExt == '.html'){
 
