@@ -18,5 +18,7 @@ This module also include the express generator module, which is a module that wi
 * REST API Express, MongoDB & Mongoose
 * Assignment
 
+```npm install express-generator -g```
+
 #### Week 3 : Halt! Who goes there?
 #### Week 4 : Backend as a Service (BaaS)
