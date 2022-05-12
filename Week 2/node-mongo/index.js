@@ -28,7 +28,7 @@ MongoClient.connect(url,(err, client) => {
 
             db.dropCollection('dishes',(err,result) => {
                 assert.equal(err,null);
-                console.log('dishes collection has  successfully been deleted');
+                console.log('dishes collection has successfully been deleted');
                 client.close();
             });
         });
