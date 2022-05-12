@@ -1,4 +1,4 @@
-# About the Course :
+#### About the Course :
 
 This course is part of the Full Stack Web Development available on <a href="https://www.coursera.org/specializations/full-stack-mobile-app-development">Coursera</a>
 
