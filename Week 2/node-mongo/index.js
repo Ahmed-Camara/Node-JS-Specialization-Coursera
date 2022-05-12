@@ -3,7 +3,7 @@ const assert = require('assert');
 const dbOper = require('./operations');
 
 
-const url = 'mongodb+srv://<username>:<password>@cluster0.nnme3.mongodb.net/test';
+const url = 'mongodb+srv://ahmed:camara@cluster0.nnme3.mongodb.net/test';
 const dbname = 'conFusion';
 
 MongoClient.connect(url,(err, client) => {
@@ -56,3 +56,47 @@ MongoClient.connect(url,(err, client) => {
         });
     });
 });
+
+
+console.log('***************************************************************************************************************');
+
+// PROMISES
+
+MongoClient.connect(url).then((client) => {
+
+    console.log('Connected correctly to server');
+    const db = client.db(dbname);
+
+    dbOper.insertDocument(db, { name: "Vadonut", description: "Test"},
+        "dishes")
+        .then((result) => {
+            console.log("Insert Document:\n", result.ops);
+
+            return dbOper.findDocuments(db, "dishes");
+        })
+        .then((docs) => {
+            console.log("Found Documents:\n", docs);
+
+            return dbOper.updateDocument(db, { name: "Vadonut" },
+                    { description: "Updated Test" }, "dishes");
+
+        })
+        .then((result) => {
+            console.log("Updated Document:\n", result.result);
+
+            return dbOper.findDocuments(db, "dishes");
+        })
+        .then((docs) => {
+            console.log("Found Updated Documents:\n", docs);
+                            
+            return db.dropCollection("dishes");
+        })
+        .then((result) => {
+            console.log("Dropped Collection: ", result);
+
+            return client.close();
+        })
+        .catch((err) => console.log(err));
+
+})
+.catch((err) => console.log(err));
