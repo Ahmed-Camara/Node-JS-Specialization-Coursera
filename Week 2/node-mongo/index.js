@@ -1,7 +1,9 @@
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
+const dbOper = require('./operations');
 
-const url = 'mongodb+srv://ahmed:<password>@cluster0.nnme3.mongodb.net/test';
+
+const url = 'mongodb+srv://ahmed:camara@cluster0.nnme3.mongodb.net/test';
 const dbname = 'conFusion';
 
 MongoClient.connect(url,(err, client) => {
@@ -12,7 +14,7 @@ MongoClient.connect(url,(err, client) => {
 
     const db = client.db(dbname);
 
-    const collection = db.collection('dishes');
+    /*const collection = db.collection('dishes');
 
     collection.insertOne({"name":"Uthappizza","description":"test"}, (err,result) => {
 
@@ -33,5 +35,24 @@ MongoClient.connect(url,(err, client) => {
             });
         });
 
+    });*/
+
+    dbOper.insertDocument(db,{name:"Vadonut",description:"Test"},'dishes',(result) => {
+        console.log(`Insert Document : \n ${result.ops}`);
+
+        dbOper.updateDocument(db,{name:"Vadonut"},{description:"Updated Test"},'dishes',(result) => {
+
+            console.log(`Updated document : \n ${result.result}`);
+
+            dbOper.findDocuments(db,'dishes',(docs) => {
+                console.log(`Found updated documents : \n ${docs}`);
+
+                db.dropCollection('dishes',(result) => {
+                    console.log("Dropped Collection: ", result);
+
+                    client.close();
+                });
+            });
+        });
     });
 });
