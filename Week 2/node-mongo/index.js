@@ -1,7 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
-const url = 'mongodb+srv://ahmed:camara@cluster0.nnme3.mongodb.net/test';
+const url = 'mongodb+srv://ahmed:<password>@cluster0.nnme3.mongodb.net/test';
 const dbname = 'conFusion';
 
 MongoClient.connect(url,(err, client) => {
