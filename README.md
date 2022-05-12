@@ -13,6 +13,7 @@ In this module, the main focus is about the data, how to manipulate stored in th
 This module also include the express generator module, which is a module that will help us to quickly build the structure for an express application.
 
 * Express generator
+* Callback Hell and Promises
 * MongoDB & Node JS
 * Mongoose ODM
 * REST API Express, MongoDB & Mongoose
