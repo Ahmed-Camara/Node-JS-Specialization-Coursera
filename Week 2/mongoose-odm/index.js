@@ -4,6 +4,8 @@ const Dishes = require('./models/dishes');
 const url = 'mongodb+srv://<username>:<password>@cluster0.pmrnt.mongodb.net/test';
 const connect = mongoose.connect(url);
 
+// PART 1
+/*
 connect.then((db) => {
 
     const newDish = Dishes({
@@ -24,6 +26,31 @@ connect.then((db) => {
     }).then((err) => {
         console.log(err);
     });
+}).catch((err) => {
+    console.log(`Cannot connect to the database : ${err}`);
+});*/
+
+// Part 2
+
+connect.then((db) => {
+    
+    Dishes.create({
+        name: 'Uthapizza',
+        description: 'Test'
+    }).then((dish) => {
+        console.log(dish);
+
+        return Dishes.find({}).exec();
+    }).then((dishes) => {
+        console.log(dishes);
+
+        return Dishes.remove({});
+    }).then(() => {
+        return mongoose.connection.close();
+    }).catch((err) => {
+        console.log(err);
+    });
+
 }).catch((err) => {
     console.log(`Cannot connect to the database : ${err}`);
 });
