@@ -33,7 +33,9 @@ const dishSchema = new schema({
     description:{
         type:String,
         required:true
-    }
+    },
+
+    comments : [commentSchema]
 },{
     timestamps:true
 });
