@@ -28,3 +28,5 @@ This module also include the express generator module, which is a module that wi
 ```npm install express-generator -g```
 * mongoDB : 
 ```npm install mongodb --save```
+* mongoose : 
+```npm install mongoose --save```
