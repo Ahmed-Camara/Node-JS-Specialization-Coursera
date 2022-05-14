@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Dishes = require('./models/dishes');
 
-const url = 'mongodb+srv://camara:ahmed@cluster0.pmrnt.mongodb.net/test';
+const url = 'mongodb+srv://<username>:<password>@cluster0.pmrnt.mongodb.net/test';
 const connect = mongoose.connect(url);
 
 // PART 1
@@ -109,7 +109,7 @@ connect.then((db) => {
     }).catch((err) => {
 
         console.log(err);
-        
+
     });
 
 }).catch((err) => {
