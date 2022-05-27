@@ -21,6 +21,8 @@ This module also include the express generator module, which is a module that wi
 
 
 #### Week 3 : Halt! Who goes there?
+###### References
+ * <a href="https://developer.mozilla.org/en-US/docs/web/http/authentication">Basic authentication</a>
 #### Week 4 : Backend as a Service (BaaS)
 
 #### Commands
