@@ -65,7 +65,7 @@ const mongoose = require('mongoose');
 const Promotions = require('./models/promotions');
 const Leaders = require('./models/leaders');
 
-const url = 'mongodb+srv://camara:ahmed@cluster0.pmrnt.mongodb.net/test';
+const url = 'mongodb+srv://<username>:<password>@cluster0.pmrnt.mongodb.net/test';
 
 const connect = mongoose.connect(url);
 
