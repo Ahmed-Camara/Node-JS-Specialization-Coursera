@@ -21,6 +21,11 @@ This module also include the express generator module, which is a module that wi
 
 
 #### Week 3 : Halt! Who goes there?
+The week 3 of this specialization consists of restricting users from unauthorize acces.
+The course covered three types of authentification : 
+* Basic Authentication
+* Cookies, Tea and Err... Express Sessions
+* User authentication with passport
 ###### References
  * <a href="https://developer.mozilla.org/en-US/docs/web/http/authentication">Basic authentication</a>
 #### Week 4 : Backend as a Service (BaaS)
