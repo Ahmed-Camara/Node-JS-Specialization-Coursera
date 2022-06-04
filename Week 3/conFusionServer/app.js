@@ -21,7 +21,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+const ErrorMessageGeneration = (req,res) => {
+  
+  let err = new Error(`You are not authenticated`);
+  res.setHeader('WWW-Authenticate','Basic');
+  err.status = 401;
 
+  return err;
+
+};
 const auth = (req,res,next) => {
 
   console.log(req.headers);
@@ -30,10 +38,7 @@ const auth = (req,res,next) => {
 
   if(!authHeader){
 
-    let err = new Error(`You are not authenticated`);
-    res.setHeader('WWW-Authenticate','Basic');
-    err.status = 401;
-    return next(err);
+    return next(ErrorMessageGeneration(req,res));
   }
 
 
@@ -47,10 +52,7 @@ const auth = (req,res,next) => {
     next();
   }else{
 
-    let err = new Error(`You are not authenticated`);
-    res.setHeader('WWW-Authenticate','Basic');
-    err.status = 401;
-    return next(err);
+    return next(ErrorMessageGeneration(req,res));
   }
 };
 
