@@ -47,7 +47,7 @@ const auth = (req,res,next) => {
     const username = auth[0];
     const password = auth[1];
 
-    if(username === 'admin' && password === '123'){
+    if(username === 'admin' && password === 'password'){
 
       res.cookie('user','admin',{signed:true});
 
@@ -84,7 +84,7 @@ const mongoose = require('mongoose');
 const Promotions = require('./models/promotions');
 const Leaders = require('./models/leaders');
 
-const url = 'mongodb+srv://camara:ahmed@cluster0.pmrnt.mongodb.net/test';
+const url = 'mongodb+srv://<username>:<passowrd>@cluster0.pmrnt.mongodb.net/test';
 
 const connect = mongoose.connect(url);
 
